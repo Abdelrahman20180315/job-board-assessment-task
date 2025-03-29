@@ -49,7 +49,7 @@ Follow these steps to set up the project locally:
 
 1. **Clone the Repository**:
    ```bash
-   git clone <repository-url>
+   git clone <[repository-url](https://github.com/Abdelrahman20180315/job-board-assessment-task.git)>
    cd job-board
 
 Install Dependencies:
