@@ -49,7 +49,7 @@ Follow these steps to set up the project locally:
 
 1. **Clone the Repository**:
    ```bash
-   git clone <repository-url>
+   git clone <https://github.com/Abdelrahman20180315/job-board-assessment-task.git>
    cd job-board
 
 Install Dependencies:
@@ -102,7 +102,7 @@ Start the Laravel development server:
 php artisan serve
 The API will be available at http://localhost:8000.
 
-API Endpoints
+## API Endpoints
 GET /api/jobs
 Returns a paginated list of jobs with filtering and sorting capabilities.
 
@@ -241,7 +241,9 @@ json
     "error": "Internal server error",
     "message": "Detailed error message"
 }
-Postman Collection
+
+## Postman Collection
+
 A Postman collection is included in the repository at postman_collection.json. Import it into Postman to test the API endpoints. The collection includes example requests for various filter scenarios, such as:
 
 Basic filtering by job type and salary.
@@ -254,7 +256,9 @@ Open Postman.
 Click "Import" and select the postman_collection.json file.
 Set the base_url variable in the collection to http://localhost:8000 (or your server URL).
 Run the requests to test the API.
-Assumptions and Design Decisions
+
+## Assumptions and Design Decisions
+
 EAV Implementation:
 Used a single value column in the job_attribute_values table as a string, with type casting handled in the application layer. This simplifies the schema but may not be optimal for performance with large datasets.
 Cached attribute lookups using Laravel’s caching system to reduce database queries for EAV filtering.
@@ -274,7 +278,9 @@ Sorting on EAV attributes is not implemented due to complexity but can be added 
 Database Seeding:
 Seeded the database with 50 sample jobs, each with random relationships and EAV attributes, to facilitate testing.
 Included a variety of data to test different filter scenarios (e.g., different job types, locations, and experience levels).
-Trade-offs
+
+## Trade-offs
+
 Joins vs. Subqueries:
 Decision: Used joins for relationship and EAV filtering to improve query performance.
 Trade-off: Joins can lead to duplicate rows if not handled properly, requiring distinct() to be used. Subqueries (via whereHas) are simpler but less efficient for large datasets.
