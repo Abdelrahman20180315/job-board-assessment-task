@@ -1,0 +1,37 @@
+{
+    "info": {
+        "name": "Job Board API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Get Jobs with Filters",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/api/jobs?filter=(job_type=full-time AND (languages HAS_ANY (PHP,JavaScript))) AND (locations IS_ANY (New York,Remote)) AND attribute:years_experience>=3&sort=salary_min:desc",
+                    "host": ["{{base_url}}"],
+                    "path": ["api", "jobs"],
+                    "query": [
+                        {
+                            "key": "filter",
+                            "value": "(job_type=full-time AND (languages HAS_ANY (PHP,JavaScript))) AND (locations IS_ANY (New York,Remote)) AND attribute:years_experience>=3"
+                        },
+                        {
+                            "key": "sort",
+                            "value": "salary_min:desc"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        }
+    ],
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "http://localhost:8000"
+        }
+    ]
+}
